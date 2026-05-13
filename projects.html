@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Sagar Shukla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SS</a>
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="index.html#contact" class="nav-link">Contact</a>
+                <a href="#" class="btn-resume">Resume</a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated neural network background -->
+    <canvas id="neural-bg"></canvas>
+
+    <div class="projects-page-wrapper">
+        <div class="projects-header-container">
+            <h1 class="projects-page-title">My <span>Projects</span></h1>
+            <p class="projects-page-desc">Explore my work spanning Computer Vision, Natural Language Processing, MLOps, and Full Stack development.</p>
+        </div>
+
+        <div class="projects-controls">
+            <div class="filter-bar">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="cv">Computer Vision</button>
+                <button class="filter-pill" data-filter="nlp">NLP/LLMs</button>
+                <button class="filter-pill" data-filter="mlops">MLOps</button>
+                <button class="filter-pill" data-filter="fullstack">Full Stack</button>
+            </div>
+            
+            <div class="search-bar">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="project-search" placeholder="Search projects...">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="projects-grid" id="projects-grid-container">
+                <!-- Card 1 -->
+                <div class="project-card" data-category="cv">
+                    <div class="card-banner"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">Suspicious Activity Recognition</h3>
+                        <p class="project-desc">Skeleton-based CCTV surveillance system utilizing YOLOv8, DeepSORT, and ST-GCN for real-time anomaly detection.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">YOLOv8</span>
+                            <span class="tech-badge">DeepSORT</span>
+                            <span class="tech-badge">ST-GCN</span>
+                            <span class="tech-badge">PyTorch</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="project-detail.html" class="btn-card">Case Study</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="project-card" data-category="nlp">
+                    <div class="card-banner banner-2"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">Government Scheme Chatbot</h3>
+                        <p class="project-desc">LLaMA 3.1 8B powered RAG chatbot designed to help Indian citizens discover and apply for relevant government schemes.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">LLaMA 3.1</span>
+                            <span class="tech-badge">RAG</span>
+                            <span class="tech-badge">LangChain</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-card">Demo</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="project-card" data-category="nlp mlops fullstack">
+                    <div class="card-banner banner-3"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">SME-PLUG</h3>
+                        <p class="project-desc">A hot-swappable RAG pipeline leveraging multi-agent systems to dynamically solve complex SME queries with FastAPI.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">LangChain</span>
+                            <span class="tech-badge">CrewAI</span>
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">Docker</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-card">Demo</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 (New) -->
+                <div class="project-card" data-category="cv mlops">
+                    <div class="card-banner" style="background: linear-gradient(135deg, #f59e0b, #ef4444);"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">Automated Defect Detection</h3>
+                        <p class="project-desc">Industrial quality control pipeline using ResNet50 and edge deployment via TensorRT for high-speed manufacturing.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">ResNet50</span>
+                            <span class="tech-badge">TensorRT</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">C++</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-card">Demo</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 (New) -->
+                <div class="project-card" data-category="fullstack">
+                    <div class="card-banner" style="background: linear-gradient(135deg, #10b981, #3b82f6);"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">DataViz Dashboard</h3>
+                        <p class="project-desc">Interactive real-time analytics dashboard built with React, D3.js, and a Node.js backend streaming WebSocket data.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">D3.js</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">WebSockets</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-card">Demo</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 (New) -->
+                <div class="project-card" data-category="nlp">
+                    <div class="card-banner" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">Sentiment Analyzer</h3>
+                        <p class="project-desc">Fine-tuned RoBERTa model for multi-lingual sentiment analysis of social media streams with a sleek web interface.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">RoBERTa</span>
+                            <span class="tech-badge">HuggingFace</span>
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">Vue.js</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-card">Demo</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-divider"></div>
+        <div class="footer-content">
+            <h3 class="footer-name">Sagar Shukla</h3>
+            <p class="footer-tagline">Building the future of AI & ML, one model at a time.</p>
+
+            <div class="footer-socials">
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                    </svg>
+                </a>
+            </div>
+
+            <p class="footer-copyright">&copy; 2026 Sagar Shukla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="projects.js"></script>
+</body>
+
+</html>

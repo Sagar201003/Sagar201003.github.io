@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sagar Shukla | AI/ML Engineer</title>
+    <meta name="description"
+        content="Portfolio of Sagar Shukla, AI/ML Engineer, MLOps Practitioner, and Computer Vision Engineer.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">SS</a>
+
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="btn-resume">Resume</a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated neural network background -->
+    <canvas id="neural-bg"></canvas>
+
+    <main class="hero-container">
+        <div class="glass-card hero-content">
+            <h2 class="greeting">Hello, I'm</h2>
+            <h1 class="name">Sagar Shukla</h1>
+            <div class="typewriter-container">
+                <span class="role-prefix">I am an </span>
+                <span class="typewriter-text" id="typewriter"></span><span class="cursor"></span>
+            </div>
+
+            <p class="description">
+                Building intelligent systems and transforming data into actionable insights through advanced machine
+                learning models and robust MLOps practices.
+            </p>
+
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#blog" class="btn btn-secondary">Read Blog</a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </main>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+
+            <div class="about-content">
+                <!-- Left: Stylized Avatar Placeholder -->
+                <div class="about-image-wrapper">
+                    <div class="glowing-ring"></div>
+                    <div class="avatar-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Right: Bio, Skills, Stats -->
+                <div class="about-text-content">
+                    <p class="bio">
+                        I am an AI/ML Engineer and M.Tech student deeply passionate about building intelligent systems.
+                        My expertise lies in Computer Vision and Large Language Models (LLMs). I thrive on transforming
+                        complex data into actionable insights and designing robust MLOps pipelines that bridge the gap
+                        between research and production.
+                    </p>
+
+                    <div class="skills-container">
+                        <span class="skill-pill">Python</span>
+                        <span class="skill-pill">PyTorch</span>
+                        <span class="skill-pill">LangChain</span>
+                        <span class="skill-pill">MLflow</span>
+                        <span class="skill-pill">FastAPI</span>
+                        <span class="skill-pill">YOLOv8</span>
+                    </div>
+
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <h3 class="stat-number">10+</h3>
+                            <p class="stat-label">Projects</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">3</h3>
+                            <p class="stat-label">Internships</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3 class="stat-number">5+</h3>
+                            <p class="stat-label">Publications/Talks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Projects</span></h2>
+
+            <div class="projects-grid">
+                <!-- Card 1 -->
+                <div class="project-card">
+                    <div class="card-banner"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">Suspicious Activity Recognition</h3>
+                        <p class="project-desc">Skeleton-based CCTV surveillance system utilizing YOLOv8, DeepSORT, and
+                            ST-GCN for real-time anomaly detection.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">YOLOv8</span>
+                            <span class="tech-badge">DeepSORT</span>
+                            <span class="tech-badge">ST-GCN</span>
+                            <span class="tech-badge">PyTorch</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="project-detail.html" class="btn-card">View Details</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="project-card">
+                    <div class="card-banner banner-2"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">Government Scheme Chatbot</h3>
+                        <p class="project-desc">LLaMA 3.1 8B powered RAG chatbot designed to help Indian citizens
+                            discover and apply for relevant government schemes.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">LLaMA 3.1</span>
+                            <span class="tech-badge">RAG</span>
+                            <span class="tech-badge">LangChain</span>
+                            <span class="tech-badge">Python</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-card">View Details</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="project-card">
+                    <div class="card-banner banner-3"></div>
+                    <div class="card-content">
+                        <h3 class="project-title">SME-PLUG</h3>
+                        <p class="project-desc">A hot-swappable RAG pipeline leveraging multi-agent systems to
+                            dynamically solve complex SME queries with FastAPI.</p>
+                        <div class="tech-stack">
+                            <span class="tech-badge">LangChain</span>
+                            <span class="tech-badge">CrewAI</span>
+                            <span class="tech-badge">FastAPI</span>
+                            <span class="tech-badge">Docker</span>
+                        </div>
+                        <div class="card-actions">
+                            <a href="#" class="btn-card">View Details</a>
+                            <a href="#" class="btn-card btn-github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-all-container">
+                <a href="projects.html" class="btn btn-outline-pill">View All Projects &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Skills & <span>Tech Stack</span></h2>
+
+            <div class="bento-grid">
+                <!-- AI/ML -->
+                <div class="bento-card bento-aiml">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">AI & ML</h3>
+                    <div class="bento-tags">
+                        <span class="skill-tag tag-aiml">PyTorch</span>
+                        <span class="skill-tag tag-aiml">TensorFlow</span>
+                        <span class="skill-tag tag-aiml">Scikit-learn</span>
+                        <span class="skill-tag tag-aiml">HuggingFace</span>
+                        <span class="skill-tag tag-aiml">OpenCV</span>
+                    </div>
+                </div>
+
+                <!-- LLMs & RAG -->
+                <div class="bento-card bento-llms">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">LLMs & RAG</h3>
+                    <div class="bento-tags">
+                        <span class="skill-tag tag-llms">LangChain</span>
+                        <span class="skill-tag tag-llms">CrewAI</span>
+                        <span class="skill-tag tag-llms">ChromaDB</span>
+                        <span class="skill-tag tag-llms">LlamaIndex</span>
+                        <span class="skill-tag tag-llms">Ollama</span>
+                    </div>
+                </div>
+
+                <!-- MLOps -->
+                <div class="bento-card bento-mlops">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">MLOps</h3>
+                    <div class="bento-tags">
+                        <span class="skill-tag tag-mlops">MLflow</span>
+                        <span class="skill-tag tag-mlops">W&B</span>
+                        <span class="skill-tag tag-mlops">FastAPI</span>
+                        <span class="skill-tag tag-mlops">Docker</span>
+                        <span class="skill-tag tag-mlops">Git</span>
+                    </div>
+                </div>
+
+                <!-- Languages & Tools -->
+                <div class="bento-card bento-tools">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Languages & Tools</h3>
+                    <div class="bento-tags">
+                        <span class="skill-tag tag-tools">Python</span>
+                        <span class="skill-tag tag-tools">JavaScript</span>
+                        <span class="skill-tag tag-tools">React</span>
+                        <span class="skill-tag tag-tools">SQL</span>
+                        <span class="skill-tag tag-tools">Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog" class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Latest <span>Articles</span></h2>
+
+            <div class="blog-list">
+                <!-- Article 1 -->
+                <article class="blog-card">
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category cat-cv">Computer Vision</span>
+                            <span class="blog-date">Oct 12, 2025</span>
+                            <span class="blog-read-time">5 min read</span>
+                        </div>
+                        <h3 class="blog-title">Advanced Action Recognition using ST-GCN and YOLOv8</h3>
+                        <p class="blog-excerpt">A deep dive into integrating skeletal data and real-time object tracking
+                            for scalable surveillance solutions.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card">
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category cat-llm">LLMs</span>
+                            <span class="blog-date">Sep 28, 2025</span>
+                            <span class="blog-read-time">7 min read</span>
+                        </div>
+                        <h3 class="blog-title">Optimizing RAG Pipelines with LLaMA 3.1 and ChromaDB</h3>
+                        <p class="blog-excerpt">Exploring techniques to improve retrieval accuracy and reduce latency in
+                            highly specialized domain applications.</p>
+                        <a href="blog-post.html" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card">
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category cat-mlops">MLOps</span>
+                            <span class="blog-date">Aug 15, 2025</span>
+                            <span class="blog-read-time">6 min read</span>
+                        </div>
+                        <h3 class="blog-title">Deploying Hot-Swappable Multi-Agent Systems via FastAPI</h3>
+                        <p class="blog-excerpt">A practical guide to productionizing LangChain and CrewAI agents with
+                            dynamic tool loading architectures.</p>
+                        <a href="#" class="read-more">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="view-all-container">
+                <a href="blog.html" class="btn btn-outline-pill">View All Articles &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Left Side: Info -->
+                <div class="contact-info">
+                    <h2 class="contact-heading">Let's build something <span>together</span></h2>
+                    <p class="contact-text">I'm currently open for new opportunities and collaborations. Whether you
+                        have a question or just want to say hi, feel free to drop a message!</p>
+
+                    <div class="contact-links">
+                        <a href="mailto:placeholder@email.com" class="contact-row">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <span>hello@sagarshukla.com</span>
+                        </a>
+                        <a href="#" class="contact-row">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                                    <circle cx="4" cy="4" r="2" />
+                                </svg>
+                            </div>
+                            <span>linkedin.com/in/sagarshukla</span>
+                        </a>
+                        <a href="#" class="contact-row">
+                            <div class="contact-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                                </svg>
+                            </div>
+                            <span>github.com/sagarshukla</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Form -->
+                <div class="contact-form-wrapper">
+                    <div class="form-gradient-border"></div>
+                    <form class="contact-form" onsubmit="event.preventDefault();">
+                        <div class="input-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="john@example.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="4" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            Send Message
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-divider"></div>
+        <div class="footer-content">
+            <h3 class="footer-name">Sagar Shukla</h3>
+            <p class="footer-tagline">Building the future of AI & ML, one model at a time.</p>
+
+            <div class="footer-socials">
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z" />
+                        <circle cx="4" cy="4" r="2" />
+                    </svg>
+                </a>
+                <a href="#" class="social-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
+                    </svg>
+                </a>
+            </div>
+
+            <p class="footer-copyright">&copy; 2026 Sagar Shukla. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
