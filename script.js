@@ -204,6 +204,13 @@ navLinks.forEach(link => {
     });
 });
 
+// Global Helper for Date Formatting
+function formatDate(dateString) {
+    if (!dateString) return '';
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
 // Fetch Latest Hashnode Articles for Homepage
 document.addEventListener('DOMContentLoaded', async () => {
     const latestContainer = document.getElementById('latest-articles-container');
@@ -255,19 +262,20 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
-    const { featured } = await getProcessedRepos();
+    try {
+        const { featured } = await getProcessedRepos();
 
-    featuredContainer.innerHTML = ''; // clear loading text
+        featuredContainer.innerHTML = ''; // clear loading text
 
-    if (featured.length === 0) {
-        featuredContainer.innerHTML = '<div style="text-align: center; color: #94a3b8; grid-column: 1/-1;">No featured projects found.</div>';
-        return;
-    }
+        if (!featured || featured.length === 0) {
+            featuredContainer.innerHTML = '<div style="text-align: center; color: #94a3b8; grid-column: 1/-1;">No featured projects found.</div>';
+            return;
+        }
 
-    // Reuse the color logic from github.js or projects.js if available, else fallback
-    const getLangColor = typeof getLanguageColor === 'function' ? getLanguageColor : (lang) => "#64c8ff";
+        // Reuse the color logic from github.js or projects.js if available, else fallback
+        const getLangColor = typeof getLanguageColor === 'function' ? getLanguageColor : (lang) => "#64c8ff";
 
-    featured.forEach(repo => {
+        featured.forEach(repo => {
         const langColor = getLangColor(repo.language);
         const title = typeof formatRepoName === 'function' ? formatRepoName(repo.name) : repo.name;
         const desc = repo.description || "No description provided.";
@@ -298,4 +306,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         `;
         featuredContainer.insertAdjacentHTML('beforeend', card);
     });
+    } catch (err) {
+        console.error(err);
+        featuredContainer.innerHTML = `<div style="text-align: center; color: #f43f5e; grid-column: 1/-1;">Error rendering projects: ${err.message}</div>`;
+    }
 });
