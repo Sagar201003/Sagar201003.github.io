@@ -26,6 +26,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         const readmeHtml = readmeMarkdown ? marked.parse(readmeMarkdown) : '<p style="text-align: center; color: #94a3b8; padding: 3rem;">No README.md available for this repository.</p>';
 
         const langColor = repo.language ? getLanguageColor(repo.language) : '#64c8ff';
+        
+        // Define beautiful vibrant gradients for the banner
+        const beautifulGradients = [
+            "linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)", // Purple to Pink
+            "linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%)", // Blue to Teal
+            "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)", // Orange to Red
+            "linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)", // Violet to Blue
+            "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)"  // Emerald to Blue
+        ];
+        // Hash the repo name to pick a consistent gradient
+        const nameHash = repo.name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        const gradient = beautifulGradients[nameHash % beautifulGradients.length];
+
         const title = formatRepoName(repo.name);
         const tagsHtml = (repo.topics || []).map(t => `<span class="tech-badge">${t}</span>`).join('');
         const demoBtn = repo.homepage ? `<a href="${repo.homepage}" target="_blank" class="btn btn-primary btn-demo-large"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Live Demo</a>` : '';
@@ -62,8 +75,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             </header>
 
             <!-- Banner -->
-            <div class="project-banner-container">
-                <div class="project-banner-gradient" style="background: linear-gradient(180deg, ${langColor} 0%, rgba(10,10,15,1) 100%); opacity: 0.3;"></div>
+            <div class="project-banner-container" style="background: ${gradient}; position: relative;">
+                <div style="position: absolute; inset: 0; background: url('data:image/svg+xml;utf8,<svg width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 40L40 0H20L0 20M40 40V20L20 40\" fill=\"rgba(255,255,255,0.05)\"/></svg>') repeat;"></div>
             </div>
 
             <!-- Case Study Content (README) -->

@@ -12,13 +12,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const { featured, all } = await getProcessedRepos();
 
+    // Define beautiful vibrant gradients for the cards
+    const beautifulGradients = [
+        "linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)", // Purple to Pink
+        "linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%)", // Blue to Teal
+        "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)", // Orange to Red
+        "linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)", // Violet to Blue
+        "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)"  // Emerald to Blue
+    ];
+
     // Render Featured
     featuredGrid.innerHTML = '';
     if (featured.length === 0) {
         featuredGrid.innerHTML = '<div style="color: #94a3b8; text-align: center; grid-column: 1/-1;">No featured projects found.</div>';
     } else {
-        featured.forEach(repo => {
-            const langColor = getLanguageColor(repo.language);
+        featured.forEach((repo, index) => {
+            const gradient = beautifulGradients[index % beautifulGradients.length];
             const title = formatRepoName(repo.name);
             const desc = repo.description || "No description provided.";
             const topics = repo.topics || [];
@@ -26,7 +35,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             const card = `
                 <div class="project-card">
-                    <div class="card-banner" style="background: linear-gradient(135deg, ${langColor} 0%, rgba(10,10,15,1) 100%);"></div>
+                    <div class="card-banner" style="background: ${gradient}; position: relative; overflow: hidden;">
+                        <div style="position: absolute; inset: 0; background: url('data:image/svg+xml;utf8,<svg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 20L20 0H10L0 10M20 20V10L10 20\" fill=\"rgba(255,255,255,0.05)\"/></svg>') repeat;"></div>
+                    </div>
                     <div class="card-content">
                         <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
                             <h3 class="project-title">${title}</h3>

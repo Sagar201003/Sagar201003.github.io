@@ -272,20 +272,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        // Reuse the color logic from github.js or projects.js if available, else fallback
-        const getLangColor = typeof getLanguageColor === 'function' ? getLanguageColor : (lang) => "#64c8ff";
+        // Define beautiful vibrant gradients for the cards
+        const beautifulGradients = [
+            "linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)", // Purple to Pink
+            "linear-gradient(135deg, #3b82f6 0%, #2dd4bf 100%)", // Blue to Teal
+            "linear-gradient(135deg, #f59e0b 0%, #ef4444 100%)", // Orange to Red
+            "linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)", // Violet to Blue
+            "linear-gradient(135deg, #10b981 0%, #3b82f6 100%)"  // Emerald to Blue
+        ];
 
-        featured.forEach(repo => {
-        const langColor = getLangColor(repo.language);
-        const title = typeof formatRepoName === 'function' ? formatRepoName(repo.name) : repo.name;
-        const desc = repo.description || "No description provided.";
-        const topics = repo.topics || [];
-        const tagsHtml = topics.slice(0, 4).map(t => `<span class="tech-badge">${t}</span>`).join('');
-        
-        const card = `
-            <div class="project-card">
-                <div class="card-banner" style="background: linear-gradient(135deg, ${langColor} 0%, rgba(10,10,15,1) 100%);"></div>
-                <div class="card-content">
+        featured.forEach((repo, index) => {
+            const gradient = beautifulGradients[index % beautifulGradients.length];
+            const title = typeof formatRepoName === 'function' ? formatRepoName(repo.name) : repo.name;
+            const desc = repo.description || "No description provided.";
+            const topics = repo.topics || [];
+            const tagsHtml = topics.slice(0, 4).map(t => `<span class="tech-badge">${t}</span>`).join('');
+            
+            const card = `
+                <div class="project-card">
+                    <div class="card-banner" style="background: ${gradient}; position: relative; overflow: hidden;">
+                        <div style="position: absolute; inset: 0; background: url('data:image/svg+xml;utf8,<svg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 20L20 0H10L0 10M20 20V10L10 20\" fill=\"rgba(255,255,255,0.05)\"/></svg>') repeat;"></div>
+                    </div>
+                    <div class="card-content">
                     <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
                         <h3 class="project-title">${title}</h3>
                         <div class="row-stars" style="color: #f59e0b; display: flex; align-items: center; gap: 0.3rem;">
