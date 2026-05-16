@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- Marked.js for markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -35,139 +37,11 @@
     <!-- Animated neural network background -->
     <canvas id="neural-bg"></canvas>
 
-    <div class="project-detail-wrapper">
-        <!-- Header -->
-        <header class="project-detail-header">
-            <div class="container">
-                <div class="project-detail-meta">
-                    <span class="blog-category cat-cv" style="display:inline-block;">Computer Vision</span>
-                </div>
-                <h1 class="project-detail-title">Suspicious Activity Recognition</h1>
-                
-                <div class="tech-stack detail-stack">
-                    <span class="tech-badge">YOLOv8</span>
-                    <span class="tech-badge">DeepSORT</span>
-                    <span class="tech-badge">ST-GCN</span>
-                    <span class="tech-badge">PyTorch</span>
-                </div>
-
-                <div class="project-detail-actions">
-                    <a href="#" class="btn btn-primary btn-demo-large">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-                        Live Demo
-                    </a>
-                    <a href="#" class="btn btn-secondary btn-github-large">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:18px;height:18px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path></svg>
-                        GitHub Repo
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <!-- Banner -->
-        <div class="project-banner-container">
-            <div class="project-banner-gradient"></div>
+    <div class="project-detail-wrapper" id="project-detail-dynamic-container">
+        <div style="text-align: center; padding: 10rem 2rem; color: #94a3b8; font-size: 1.2rem;">
+            Loading project details from GitHub...
         </div>
-
-        <!-- Case Study Content -->
-        <main class="case-study-content container">
-            
-            <section class="cs-section">
-                <h2 class="cs-heading">Overview</h2>
-                <p class="cs-text">
-                    In today's fast-paced security environments, traditional CCTV monitoring requires immense human effort and is prone to error. This project introduces a state-of-the-art skeleton-based surveillance system capable of identifying and classifying suspicious behaviors in real-time. By tracking human pose semantics instead of raw pixels, the model achieves high robustness against occlusion and lighting variations.
-                </p>
-                <p class="cs-text">
-                    The core pipeline integrates three distinct phases: high-speed object detection to isolate individuals, tracking algorithms to maintain IDs across frames, and a spatial-temporal graph convolutional network to classify the sequence of movements into benign or suspicious categories.
-                </p>
-            </section>
-
-            <section class="cs-section">
-                <h2 class="cs-heading">Problem Statement</h2>
-                <p class="cs-text">
-                    Security personnel often suffer from cognitive overload when monitoring multiple camera feeds simultaneously. Existing automated systems using optical flow or standard 2D convolutions struggle with changing environments, shadows, and varying clothing types. We needed a solution that focused strictly on biomechanical movements—the fundamental indicators of physical actions like fighting, running, or falling—regardless of the subject's appearance or background noise.
-                </p>
-            </section>
-
-            <section class="cs-section">
-                <h2 class="cs-heading">Approach & Architecture</h2>
-                <p class="cs-text">
-                    The architecture was designed as a cascading pipeline to maximize frame rates on edge devices. First, YOLOv8 accurately extracts human bounding boxes. Next, DeepSORT assigns temporal IDs to track individuals. The bounding boxes are then fed into a pose estimation model (YOLOv8-Pose) to extract 17 keypoints per person. Finally, an ST-GCN (Spatial Temporal Graph Convolutional Network) analyzes the 3D geometry of these skeletons over a rolling window of frames.
-                </p>
-                
-                <div class="cs-diagram-placeholder">
-                    <span class="diagram-text">Architecture Diagram Placeholder<br><br>(YOLOv8 &rarr; DeepSORT &rarr; Pose Extraction &rarr; ST-GCN)</span>
-                </div>
-            </section>
-
-            <section class="cs-section">
-                <h2 class="cs-heading">Results & Metrics</h2>
-                <p class="cs-text">
-                    The model was validated on a custom curated dataset comprising over 5,000 action sequences and tested in real-world simulated environments. It demonstrated significant improvements in both accuracy and inference latency compared to traditional 3D-CNN baselines.
-                </p>
-                
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-number">94.2%</div>
-                        <div class="metric-label">Action Accuracy</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-number">45 FPS</div>
-                        <div class="metric-label">Inference Speed (RTX 3060)</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-number">-60%</div>
-                        <div class="metric-label">False Positive Rate</div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="cs-section">
-                <h2 class="cs-heading">Tech Stack Deep-Dive</h2>
-                <div class="tech-deep-dive-grid">
-                    
-                    <div class="tech-item">
-                        <div class="tech-item-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#ee4c2c" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <div class="tech-item-content">
-                            <h4>PyTorch</h4>
-                            <p>Used as the primary deep learning framework for training the custom ST-GCN architecture due to its dynamic computational graph and extensive community support.</p>
-                        </div>
-                    </div>
-
-                    <div class="tech-item">
-                        <div class="tech-item-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#00aaff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-                        </div>
-                        <div class="tech-item-content">
-                            <h4>YOLOv8</h4>
-                            <p>Implemented for high-speed, state-of-the-art human detection and pose estimation. It offered the best trade-off between mAP and latency for real-time video streams.</p>
-                        </div>
-                    </div>
-
-                    <div class="tech-item">
-                        <div class="tech-item-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                        </div>
-                        <div class="tech-item-content">
-                            <h4>DeepSORT</h4>
-                            <p>Handled multi-object tracking. By combining Kalman filtering with a deep association metric, it efficiently tracked identities even when individuals momentarily crossed paths.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Next Project Navigation -->
-        <div class="next-project-container">
-            <div class="container">
-                <a href="#" class="next-project-link">
-                    <span class="next-label">Next Project</span>
-                    <h3 class="next-title">Government Scheme Chatbot &rarr;</h3>
-                </a>
-            </div>
-        </div>
+    </div>
 
     </div>
 
@@ -202,5 +76,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="github.js"></script>
+    <script src="project-detail.js"></script>
 </body>
 </html>

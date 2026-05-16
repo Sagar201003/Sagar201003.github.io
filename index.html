@@ -126,65 +126,10 @@
         <div class="container">
             <h2 class="section-title">Featured <span>Projects</span></h2>
 
-            <div class="projects-grid">
-                <!-- Card 1 -->
-                <div class="project-card">
-                    <div class="card-banner"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">Suspicious Activity Recognition</h3>
-                        <p class="project-desc">Skeleton-based CCTV surveillance system utilizing YOLOv8, DeepSORT, and
-                            ST-GCN for real-time anomaly detection.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">YOLOv8</span>
-                            <span class="tech-badge">DeepSORT</span>
-                            <span class="tech-badge">ST-GCN</span>
-                            <span class="tech-badge">PyTorch</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="project-detail.html" class="btn-card">View Details</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="project-card">
-                    <div class="card-banner banner-2"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">Government Scheme Chatbot</h3>
-                        <p class="project-desc">LLaMA 3.1 8B powered RAG chatbot designed to help Indian citizens
-                            discover and apply for relevant government schemes.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">LLaMA 3.1</span>
-                            <span class="tech-badge">RAG</span>
-                            <span class="tech-badge">LangChain</span>
-                            <span class="tech-badge">Python</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn-card">View Details</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="project-card">
-                    <div class="card-banner banner-3"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">SME-PLUG</h3>
-                        <p class="project-desc">A hot-swappable RAG pipeline leveraging multi-agent systems to
-                            dynamically solve complex SME queries with FastAPI.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">LangChain</span>
-                            <span class="tech-badge">CrewAI</span>
-                            <span class="tech-badge">FastAPI</span>
-                            <span class="tech-badge">Docker</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn-card">View Details</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
+            <div class="projects-grid" id="homepage-featured-projects">
+                <!-- Dynamically populated by JS -->
+                <div style="text-align: center; grid-column: 1 / -1; padding: 2rem; color: #94a3b8;">
+                    Loading featured projects from GitHub...
                 </div>
             </div>
 
@@ -278,51 +223,10 @@
         <div class="container">
             <h2 class="section-title">Latest <span>Articles</span></h2>
 
-            <div class="blog-list">
-                <!-- Article 1 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-cv">Computer Vision</span>
-                            <span class="blog-date">Oct 12, 2025</span>
-                            <span class="blog-read-time">5 min read</span>
-                        </div>
-                        <h3 class="blog-title">Advanced Action Recognition using ST-GCN and YOLOv8</h3>
-                        <p class="blog-excerpt">A deep dive into integrating skeletal data and real-time object tracking
-                            for scalable surveillance solutions.</p>
-                        <a href="#" class="read-more">Read More &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- Article 2 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-llm">LLMs</span>
-                            <span class="blog-date">Sep 28, 2025</span>
-                            <span class="blog-read-time">7 min read</span>
-                        </div>
-                        <h3 class="blog-title">Optimizing RAG Pipelines with LLaMA 3.1 and ChromaDB</h3>
-                        <p class="blog-excerpt">Exploring techniques to improve retrieval accuracy and reduce latency in
-                            highly specialized domain applications.</p>
-                        <a href="blog-post.html" class="read-more">Read More &rarr;</a>
-                    </div>
-                </article>
-
-                <!-- Article 3 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-mlops">MLOps</span>
-                            <span class="blog-date">Aug 15, 2025</span>
-                            <span class="blog-read-time">6 min read</span>
-                        </div>
-                        <h3 class="blog-title">Deploying Hot-Swappable Multi-Agent Systems via FastAPI</h3>
-                        <p class="blog-excerpt">A practical guide to productionizing LangChain and CrewAI agents with
-                            dynamic tool loading architectures.</p>
-                        <a href="#" class="read-more">Read More &rarr;</a>
-                    </div>
-                </article>
+            <div class="blog-list" id="latest-articles-container">
+                <div style="text-align: center; padding: 2rem; color: #94a3b8; width: 100%;">
+                    Loading latest articles...
+                </div>
             </div>
 
             <div class="view-all-container">
@@ -430,6 +334,8 @@
         </div>
     </footer>
 
+    <script src="hashnode.js"></script>
+    <script src="github.js"></script>
     <script src="script.js"></script>
 </body>
 

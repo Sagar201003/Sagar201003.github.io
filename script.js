@@ -203,3 +203,99 @@ navLinks.forEach(link => {
         navMenu.classList.remove('active');
     });
 });
+
+// Fetch Latest Hashnode Articles for Homepage
+document.addEventListener('DOMContentLoaded', async () => {
+    const latestContainer = document.getElementById('latest-articles-container');
+    if (!latestContainer) return; // Only run on index.html where this container exists
+
+    if (typeof fetchHashnodePosts !== 'function') {
+        latestContainer.innerHTML = '<div style="color: red; text-align: center; padding: 2rem; width: 100%;">Error: hashnode.js is missing.</div>';
+        return;
+    }
+
+    const posts = await fetchHashnodePosts(3); // Fetch only top 3
+
+    if (posts.length === 0) {
+        latestContainer.innerHTML = '<div style="text-align: center; padding: 2rem; color: #94a3b8; width: 100%;">No articles found. Please check your Hashnode username.</div>';
+        return;
+    }
+
+    latestContainer.innerHTML = ''; // clear loading text
+
+    posts.forEach(post => {
+        const tag = post.tags && post.tags.length > 0 ? post.tags[0].name : "Article";
+        const date = formatDate(post.publishedAt);
+        
+        const articleHtml = `
+            <article class="blog-card" onclick="window.location.href='blog-post.html?slug=${post.slug}'" style="cursor: pointer;">
+                <div class="blog-card-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">${tag}</span>
+                        <span class="blog-date">${date}</span>
+                        <span class="blog-read-time">${post.readTimeInMinutes} min read</span>
+                    </div>
+                    <h3 class="blog-title">${post.title}</h3>
+                    <p class="blog-excerpt">${post.brief}</p>
+                    <a href="blog-post.html?slug=${post.slug}" class="read-more">Read More &rarr;</a>
+                </div>
+            </article>
+        `;
+        latestContainer.insertAdjacentHTML('beforeend', articleHtml);
+    });
+});
+
+// Fetch Featured GitHub Projects for Homepage
+document.addEventListener('DOMContentLoaded', async () => {
+    const featuredContainer = document.getElementById('homepage-featured-projects');
+    if (!featuredContainer) return;
+
+    if (typeof getProcessedRepos !== 'function') {
+        featuredContainer.innerHTML = '<div style="color: red; text-align: center; grid-column: 1/-1;">Error: github.js is missing.</div>';
+        return;
+    }
+
+    const { featured } = await getProcessedRepos();
+
+    featuredContainer.innerHTML = ''; // clear loading text
+
+    if (featured.length === 0) {
+        featuredContainer.innerHTML = '<div style="text-align: center; color: #94a3b8; grid-column: 1/-1;">No featured projects found.</div>';
+        return;
+    }
+
+    // Reuse the color logic from github.js or projects.js if available, else fallback
+    const getLangColor = typeof getLanguageColor === 'function' ? getLanguageColor : (lang) => "#64c8ff";
+
+    featured.forEach(repo => {
+        const langColor = getLangColor(repo.language);
+        const title = typeof formatRepoName === 'function' ? formatRepoName(repo.name) : repo.name;
+        const desc = repo.description || "No description provided.";
+        const topics = repo.topics || [];
+        const tagsHtml = topics.slice(0, 4).map(t => `<span class="tech-badge">${t}</span>`).join('');
+        
+        const card = `
+            <div class="project-card">
+                <div class="card-banner" style="background: linear-gradient(135deg, ${langColor} 0%, rgba(10,10,15,1) 100%);"></div>
+                <div class="card-content">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">
+                        <h3 class="project-title">${title}</h3>
+                        <div class="row-stars" style="color: #f59e0b; display: flex; align-items: center; gap: 0.3rem;">
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <span>${repo.stargazers_count}</span>
+                        </div>
+                    </div>
+                    <p class="project-desc">${desc}</p>
+                    <div class="tech-stack" style="margin-bottom: 1.5rem;">
+                        ${tagsHtml}
+                    </div>
+                    <div class="card-actions" style="margin-top: auto;">
+                        <a href="project-detail.html?repo=${repo.name}" class="btn-card">View Details</a>
+                        <a href="${repo.html_url}" target="_blank" class="btn-card btn-github">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        `;
+        featuredContainer.insertAdjacentHTML('beforeend', card);
+    });
+});

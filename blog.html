@@ -65,112 +65,16 @@
 
         <div class="container" style="max-width: 1100px;">
             <!-- Featured Article Hero Card -->
-            <div class="featured-article" data-category="research llm">
-                <div class="featured-banner"></div>
-                <div class="featured-content">
-                    <span class="blog-category cat-llm" style="margin-bottom: 1.5rem; display: inline-block;">LLMs & Research</span>
-                    <h2 class="featured-title">The Evolution of Retrieval-Augmented Generation in Enterprise Systems</h2>
-                    <p class="featured-excerpt">An in-depth analysis of how RAG pipelines have evolved from naive semantic search to complex, multi-agent reasoning engines capable of autonomous tool use and complex problem solving in production environments.</p>
-                    <div class="featured-meta">
-                        <span>Oct 24, 2025</span>
-                        <span class="dot-separator">•</span>
-                        <span>12 min read</span>
-                    </div>
-                    <a href="blog-post.html" class="btn btn-primary" style="margin-top: 1.5rem; padding: 0.8rem 2rem;">Read Article</a>
-                </div>
+            <div id="featured-article-container">
+                <!-- Dynamically populated by JS -->
             </div>
 
             <!-- Blog Grid -->
             <div class="blog-grid" id="blog-grid-container">
-                <!-- Article 1 -->
-                <article class="blog-grid-card" data-category="cv">
-                    <div class="blog-grid-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-cv">Computer Vision</span>
-                        </div>
-                        <h3 class="blog-title">Advanced Action Recognition using ST-GCN and YOLOv8</h3>
-                        <p class="blog-excerpt">A deep dive into integrating skeletal data and real-time object tracking for scalable surveillance solutions.</p>
-                        <div class="blog-footer-meta">
-                            <span class="blog-date">Oct 12, 2025</span>
-                            <span class="blog-read-time">5 min read</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 2 -->
-                <article class="blog-grid-card" data-category="llm">
-                    <div class="blog-grid-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-llm">LLMs</span>
-                        </div>
-                        <h3 class="blog-title">Optimizing RAG Pipelines with LLaMA 3.1 and ChromaDB</h3>
-                        <p class="blog-excerpt">Exploring techniques to improve retrieval accuracy and reduce latency in highly specialized domain applications.</p>
-                        <div class="blog-footer-meta">
-                            <span class="blog-date">Sep 28, 2025</span>
-                            <span class="blog-read-time">7 min read</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 3 -->
-                <article class="blog-grid-card" data-category="mlops">
-                    <div class="blog-grid-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-mlops">MLOps</span>
-                        </div>
-                        <h3 class="blog-title">Deploying Hot-Swappable Multi-Agent Systems via FastAPI</h3>
-                        <p class="blog-excerpt">A practical guide to productionizing LangChain and CrewAI agents with dynamic tool loading architectures.</p>
-                        <div class="blog-footer-meta">
-                            <span class="blog-date">Aug 15, 2025</span>
-                            <span class="blog-read-time">6 min read</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 4 -->
-                <article class="blog-grid-card" data-category="research cv">
-                    <div class="blog-grid-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-cv" style="background: rgba(244, 114, 182, 0.1); color: #f472b6; border-color: rgba(244, 114, 182, 0.2);">Research</span>
-                        </div>
-                        <h3 class="blog-title">SAR-to-Optical Image Translation using CycleGAN</h3>
-                        <p class="blog-excerpt">Analyzing the novelty of structural similarity index (SSIM) augmented adversarial networks for remote sensing applications.</p>
-                        <div class="blog-footer-meta">
-                            <span class="blog-date">Jul 02, 2025</span>
-                            <span class="blog-read-time">9 min read</span>
-                        </div>
-                    </div>
-                </article>
-                
-                <!-- Article 5 -->
-                <article class="blog-grid-card" data-category="mlops">
-                    <div class="blog-grid-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-mlops">MLOps</span>
-                        </div>
-                        <h3 class="blog-title">End-to-End Tracking with MLflow</h3>
-                        <p class="blog-excerpt">How to standardize your experiment tracking and model registry workflows using MLflow and Weights & Biases.</p>
-                        <div class="blog-footer-meta">
-                            <span class="blog-date">Jun 10, 2025</span>
-                            <span class="blog-read-time">4 min read</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 6 -->
-                <article class="blog-grid-card" data-category="cv llm">
-                    <div class="blog-grid-content">
-                        <div class="blog-meta">
-                            <span class="blog-category cat-cv">CV & NLP</span>
-                        </div>
-                        <h3 class="blog-title">Multimodal Architectures Explained</h3>
-                        <p class="blog-excerpt">Bridging the gap between vision and language: An overview of modern multimodal architectures like CLIP and LLaVA.</p>
-                        <div class="blog-footer-meta">
-                            <span class="blog-date">May 22, 2025</span>
-                            <span class="blog-read-time">8 min read</span>
-                        </div>
-                    </div>
-                </article>
+                <!-- Dynamically populated by JS -->
+                <div style="text-align: center; grid-column: 1 / -1; padding: 2rem; color: #94a3b8;">
+                    Loading articles from Hashnode...
+                </div>
             </div>
         </div>
     </div>
@@ -206,6 +110,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="hashnode.js"></script>
     <script src="blog.js"></script>
 </body>
 

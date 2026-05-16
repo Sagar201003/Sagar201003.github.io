@@ -64,121 +64,22 @@
         </div>
 
         <div class="container">
-            <div class="projects-grid" id="projects-grid-container">
-                <!-- Card 1 -->
-                <div class="project-card" data-category="cv">
-                    <div class="card-banner"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">Suspicious Activity Recognition</h3>
-                        <p class="project-desc">Skeleton-based CCTV surveillance system utilizing YOLOv8, DeepSORT, and ST-GCN for real-time anomaly detection.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">YOLOv8</span>
-                            <span class="tech-badge">DeepSORT</span>
-                            <span class="tech-badge">ST-GCN</span>
-                            <span class="tech-badge">PyTorch</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="project-detail.html" class="btn-card">Case Study</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
+            <h2 class="section-subtitle" style="font-size: 1.5rem; margin-bottom: 2rem; color: #f8fafc;">Featured Projects</h2>
+            <div class="projects-grid" id="featured-projects-grid">
+                <!-- Dynamically populated by JS -->
+                <div style="text-align: center; grid-column: 1 / -1; padding: 2rem; color: #94a3b8;">
+                    Loading featured projects from GitHub...
                 </div>
+            </div>
 
-                <!-- Card 2 -->
-                <div class="project-card" data-category="nlp">
-                    <div class="card-banner banner-2"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">Government Scheme Chatbot</h3>
-                        <p class="project-desc">LLaMA 3.1 8B powered RAG chatbot designed to help Indian citizens discover and apply for relevant government schemes.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">LLaMA 3.1</span>
-                            <span class="tech-badge">RAG</span>
-                            <span class="tech-badge">LangChain</span>
-                            <span class="tech-badge">Python</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn-card">Demo</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
+            <hr style="border: none; border-top: 1px solid rgba(255,255,255,0.1); margin: 4rem 0;">
+
+            <h2 class="section-subtitle" style="font-size: 1.5rem; margin-bottom: 2rem; color: #f8fafc;">All Projects</h2>
+            <div class="projects-list" id="all-projects-list">
+                <!-- Dynamically populated by JS -->
+                <div style="text-align: center; padding: 2rem; color: #94a3b8;">
+                    Loading all projects from GitHub...
                 </div>
-
-                <!-- Card 3 -->
-                <div class="project-card" data-category="nlp mlops fullstack">
-                    <div class="card-banner banner-3"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">SME-PLUG</h3>
-                        <p class="project-desc">A hot-swappable RAG pipeline leveraging multi-agent systems to dynamically solve complex SME queries with FastAPI.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">LangChain</span>
-                            <span class="tech-badge">CrewAI</span>
-                            <span class="tech-badge">FastAPI</span>
-                            <span class="tech-badge">Docker</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn-card">Demo</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 4 (New) -->
-                <div class="project-card" data-category="cv mlops">
-                    <div class="card-banner" style="background: linear-gradient(135deg, #f59e0b, #ef4444);"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">Automated Defect Detection</h3>
-                        <p class="project-desc">Industrial quality control pipeline using ResNet50 and edge deployment via TensorRT for high-speed manufacturing.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">ResNet50</span>
-                            <span class="tech-badge">TensorRT</span>
-                            <span class="tech-badge">OpenCV</span>
-                            <span class="tech-badge">C++</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn-card">Demo</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 5 (New) -->
-                <div class="project-card" data-category="fullstack">
-                    <div class="card-banner" style="background: linear-gradient(135deg, #10b981, #3b82f6);"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">DataViz Dashboard</h3>
-                        <p class="project-desc">Interactive real-time analytics dashboard built with React, D3.js, and a Node.js backend streaming WebSocket data.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">D3.js</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">WebSockets</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn-card">Demo</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 6 (New) -->
-                <div class="project-card" data-category="nlp">
-                    <div class="card-banner" style="background: linear-gradient(135deg, #8b5cf6, #ec4899);"></div>
-                    <div class="card-content">
-                        <h3 class="project-title">Sentiment Analyzer</h3>
-                        <p class="project-desc">Fine-tuned RoBERTa model for multi-lingual sentiment analysis of social media streams with a sleek web interface.</p>
-                        <div class="tech-stack">
-                            <span class="tech-badge">RoBERTa</span>
-                            <span class="tech-badge">HuggingFace</span>
-                            <span class="tech-badge">FastAPI</span>
-                            <span class="tech-badge">Vue.js</span>
-                        </div>
-                        <div class="card-actions">
-                            <a href="#" class="btn-card">Demo</a>
-                            <a href="#" class="btn-card btn-github">GitHub</a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
@@ -214,6 +115,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="github.js"></script>
     <script src="projects.js"></script>
 </body>
 

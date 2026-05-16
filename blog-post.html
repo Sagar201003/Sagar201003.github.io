@@ -35,129 +35,9 @@
     <canvas id="neural-bg"></canvas>
 
     <div class="blog-post-wrapper">
-        <article class="container article-container">
-            <!-- Header -->
-            <header class="article-header">
-                <span class="blog-category cat-llm" style="display: inline-block; margin-bottom: 1rem;">LLMs & Research</span>
-                <h1 class="article-title">The Evolution of Retrieval-Augmented Generation in Enterprise Systems</h1>
-                
-                <div class="author-meta">
-                    <div class="author-avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-                    </div>
-                    <div class="author-info">
-                        <span class="author-name">Sagar Shukla</span>
-                        <div class="author-details">
-                            <span>Oct 24, 2025</span>
-                            <span class="dot-separator">•</span>
-                            <span>12 min read</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
-
-            <!-- Banner -->
-            <div class="article-banner"></div>
-
-            <!-- Content Layout (Grid) -->
-            <div class="article-layout">
-                <!-- Main Body -->
-                <div class="article-body">
-                    <p class="lead">Retrieval-Augmented Generation (RAG) has rapidly transformed from a research concept into a cornerstone of enterprise AI applications. In this article, we'll explore the paradigm shifts that occurred and how multi-agent reasoning is shaping the future.</p>
-
-                    <h2 id="introduction">1. Introduction to RAG</h2>
-                    <p>When Large Language Models hallucinate, they often do so with high confidence. The initial solution to this was naive semantic search: chunk documents, embed them into a vector database like <code>ChromaDB</code>, and retrieve the top-K chunks based on a user's query.</p>
-                    
-                    <blockquote>
-                        "The transition from naive RAG to advanced RAG involves shifting focus from simple vector retrieval to complex reasoning and context evaluation."
-                    </blockquote>
-                    
-                    <p>While effective for simple queries, naive RAG falls apart when confronted with multi-hop reasoning or contradictory data.</p>
-
-                    <h2 id="advanced-techniques">2. Advanced Retrieval Techniques</h2>
-                    <p>To overcome these limitations, several advanced techniques have emerged. One prominent approach is <strong>Query Transformations</strong>, where the user's initial prompt is rewritten to yield better embedding similarities.</p>
-                    
-                    <h3>Context Re-ranking</h3>
-                    <p>After fetching the top 20 documents, a cross-encoder can be used to re-rank the context, ensuring only the most highly relevant chunks are fed into the LLM context window.</p>
-
-                    <pre><code class="language-python"># Example of a basic Re-ranker implementation
-from sentence_transformers import CrossEncoder
-
-encoder = CrossEncoder('cross-encoder/ms-marco-MiniLM-L-6-v2')
-scores = encoder.predict([
-    ("What is RAG?", "RAG combines retrieval and generation."),
-    ("What is RAG?", "The weather today is sunny.")
-])
-print(scores) # [ 5.3, -3.1 ]</code></pre>
-
-                    <h2 id="multi-agent">3. The Multi-Agent Future</h2>
-                    <p>Instead of a single LLM processing retrieved context, modern architectures employ a swarm of specialized agents. Using frameworks like <code>CrewAI</code> or <code>LangChain</code>, we can orchestrate a "Researcher" agent to query a database and a "Writer" agent to synthesize the output.</p>
-
-                    <h2 id="conclusion">4. Conclusion</h2>
-                    <p>The evolution of RAG is moving towards agentic workflows. By incorporating tool use, memory, and reflection, enterprise systems are becoming autonomous reasoning engines rather than simple answering machines.</p>
-                </div>
-
-                <!-- Right Sidebar (Table of Contents) -->
-                <aside class="article-sidebar">
-                    <div class="toc-container">
-                        <h4 class="toc-title">Table of Contents</h4>
-                        <nav class="toc-nav" id="toc-nav">
-                            <a href="#introduction" class="toc-link active">1. Introduction to RAG</a>
-                            <a href="#advanced-techniques" class="toc-link">2. Advanced Techniques</a>
-                            <a href="#multi-agent" class="toc-link">3. The Multi-Agent Future</a>
-                            <a href="#conclusion" class="toc-link">4. Conclusion</a>
-                        </nav>
-                    </div>
-                </aside>
-            </div>
-
-            <!-- Footer Meta -->
-            <div class="article-footer">
-                <div class="article-tags">
-                    <span class="skill-tag">LLMs</span>
-                    <span class="skill-tag">RAG</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">LangChain</span>
-                </div>
-
-                <div class="author-bio-card">
-                    <div class="bio-avatar">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-                    </div>
-                    <div class="bio-text">
-                        <h4>Sagar Shukla</h4>
-                        <p>AI/ML Engineer passionate about building robust intelligent systems and writing about the bleeding edge of NLP and Computer Vision.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Related Articles -->
-            <div class="related-articles-section">
-                <h3 class="related-heading">Related Articles</h3>
-                <div class="blog-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
-                    <article class="blog-grid-card" onclick="window.location.href='#'">
-                        <div class="blog-grid-content">
-                            <div class="blog-meta"><span class="blog-category cat-mlops">MLOps</span></div>
-                            <h3 class="blog-title">Deploying Hot-Swappable Multi-Agent Systems</h3>
-                            <p class="blog-excerpt">A practical guide to productionizing agents with dynamic architectures.</p>
-                            <div class="blog-footer-meta">
-                                <span class="blog-date">Aug 15, 2025</span>
-                                <span class="blog-read-time">6 min read</span>
-                            </div>
-                        </div>
-                    </article>
-                    <article class="blog-grid-card" onclick="window.location.href='#'">
-                        <div class="blog-grid-content">
-                            <div class="blog-meta"><span class="blog-category cat-cv">Computer Vision</span></div>
-                            <h3 class="blog-title">Advanced Action Recognition using YOLOv8</h3>
-                            <p class="blog-excerpt">Deep dive into integrating skeletal data and real-time object tracking.</p>
-                            <div class="blog-footer-meta">
-                                <span class="blog-date">Oct 12, 2025</span>
-                                <span class="blog-read-time">5 min read</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+        <article class="container article-container" id="dynamic-article-container">
+            <div style="text-align: center; padding: 5rem; color: #94a3b8;">
+                Loading article from Hashnode...
             </div>
         </article>
     </div>
@@ -193,6 +73,7 @@ print(scores) # [ 5.3, -3.1 ]</code></pre>
     </footer>
 
     <script src="script.js"></script>
+    <script src="hashnode.js"></script>
     <script src="blog-post.js"></script>
 </body>
 </html>
