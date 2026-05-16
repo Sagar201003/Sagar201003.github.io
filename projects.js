@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const card = `
                 <div class="project-card">
                     <div class="card-banner" style="background: ${gradient}; position: relative; overflow: hidden;">
-                        <div style="position: absolute; inset: 0; background: url('data:image/svg+xml;utf8,<svg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 20L20 0H10L0 10M20 20V10L10 20\" fill=\"rgba(255,255,255,0.05)\"/></svg>') repeat;"></div>
+                        <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px); background-size: 12px 12px;"></div>
                     </div>
                     <div class="card-content">
                         <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 0.5rem;">

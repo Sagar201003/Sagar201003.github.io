@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             <!-- Banner -->
             <div class="project-banner-container" style="background: ${gradient}; position: relative;">
-                <div style="position: absolute; inset: 0; background: url('data:image/svg+xml;utf8,<svg width=\"40\" height=\"40\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 40L40 0H20L0 20M40 40V20L20 40\" fill=\"rgba(255,255,255,0.05)\"/></svg>') repeat;"></div>
+                <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px); background-size: 16px 16px;"></div>
             </div>
 
             <!-- Case Study Content (README) -->
