@@ -319,3 +319,72 @@ document.addEventListener('DOMContentLoaded', async () => {
         featuredContainer.innerHTML = `<div style="text-align: center; color: #f43f5e; grid-column: 1/-1;">Error rendering projects: ${err.message}</div>`;
     }
 });
+
+// ==========================================
+// Contact Form Submission (Google Sheets + WhatsApp)
+// ==========================================
+const contactForm = document.getElementById('contactForm');
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // 🚨 IMPORTANT: Replace this URL with your Google Apps Script Web App URL!
+        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+
+        const btn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
+        const statusDiv = document.getElementById('formStatus');
+
+        // Check Honeypot (Anti-spam)
+        const honeypot = contactForm.querySelector('input[name="_honeypot"]').value;
+        if (honeypot) {
+            console.log("Bot detected.");
+            return;
+        }
+
+        // UI Loading State
+        const originalText = btnText.innerText;
+        btnText.innerText = 'Sending...';
+        btn.style.opacity = '0.7';
+        btn.disabled = true;
+        btnIcon.style.display = 'none';
+        
+        statusDiv.style.display = 'none';
+
+        const formData = new FormData(contactForm);
+
+        try {
+            if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_SCRIPT_URL_HERE') {
+                throw new Error("Please configure your GOOGLE_SCRIPT_URL in script.js first.");
+            }
+
+            const response = await fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                statusDiv.innerText = '✅ Message sent successfully! I will get back to you soon.';
+                statusDiv.style.color = '#4ade80';
+                statusDiv.style.background = 'rgba(74, 222, 128, 0.1)';
+                statusDiv.style.display = 'block';
+                contactForm.reset();
+            } else {
+                throw new Error('Network response was not ok');
+            }
+        } catch (error) {
+            console.error('Error!', error.message);
+            statusDiv.innerText = `❌ Error: ${error.message}`;
+            statusDiv.style.color = '#f43f5e';
+            statusDiv.style.background = 'rgba(244, 63, 94, 0.1)';
+            statusDiv.style.display = 'block';
+        } finally {
+            // Restore UI Button State
+            btnText.innerText = originalText;
+            btn.style.opacity = '1';
+            btn.disabled = false;
+            btnIcon.style.display = 'block';
+        }
+    });
+}
