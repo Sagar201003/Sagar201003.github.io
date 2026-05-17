@@ -47,8 +47,24 @@ function typeWriter() {
 
 // Start typewriter effect after initial load
 if (typeWriterElement) {
-    setTimeout(typeWriter, 1200);
+    // Wait for a short moment before starting typing
+    setTimeout(typeWriter, 1000);
 }
+
+// ==========================================
+// Scroll Indicator Fade Effect
+// ==========================================
+window.addEventListener('scroll', () => {
+    const scrollIndicator = document.querySelector('.scroll-indicator');
+    if (scrollIndicator) {
+        // Fade out as user scrolls down (fully transparent by 200px)
+        const opacity = Math.max(0, 1 - window.scrollY / 200);
+        scrollIndicator.style.opacity = opacity;
+        
+        // Add pointer-events none when invisible so it doesn't block clicks
+        scrollIndicator.style.pointerEvents = opacity === 0 ? 'none' : 'auto';
+    }
+});
 
 
 // Animated Neural Network Particle Background
