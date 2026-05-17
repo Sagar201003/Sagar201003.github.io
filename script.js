@@ -8,7 +8,7 @@ let typeSpeed = 100;
 
 function typeWriter() {
     const currentRole = roles[roleIndex];
-    
+
     // Determine the text to display based on deleting state
     if (isDeleting) {
         typeWriterElement.textContent = currentRole.substring(0, charIndex - 1);
@@ -24,13 +24,13 @@ function typeWriter() {
     if (!isDeleting && charIndex === currentRole.length) {
         // Word is fully typed, pause before deleting
         isDeleting = true;
-        typeSpeed = 2000; 
+        typeSpeed = 2000;
     } else if (isDeleting && charIndex === 0) {
         // Word is fully deleted, switch to next word
         isDeleting = false;
         roleIndex = (roleIndex + 1) % roles.length;
         typeSpeed = 500; // Pause before typing next word
-        
+
         // Update prefix ("a" vs "an") dynamically if needed, though "I am an AI/ML Engineer" handles mostly.
         // Let's refine the grammar for the prefix
         const nextRole = roles[roleIndex];
@@ -119,7 +119,7 @@ function animate() {
             const dxMouse = particles[i].x - mouse.x;
             const dyMouse = particles[i].y - mouse.y;
             const distanceMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
-            
+
             if (distanceMouse < 180) {
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
@@ -128,7 +128,7 @@ function animate() {
                 ctx.strokeStyle = `rgba(100, 200, 255, ${alpha * 0.6})`;
                 ctx.lineWidth = 1.2;
                 ctx.stroke();
-                
+
                 // Slight attraction to mouse
                 particles[i].x -= dxMouse * 0.015;
                 particles[i].y -= dyMouse * 0.015;
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     posts.forEach(post => {
         const tag = post.tags && post.tags.length > 0 ? post.tags[0].name : "Article";
         const date = formatDate(post.publishedAt);
-        
+
         const articleHtml = `
             <article class="blog-card" onclick="window.location.href='blog-post.html?slug=${post.slug}'" style="cursor: pointer;">
                 <div class="blog-card-content">
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const desc = repo.description || "No description provided.";
             const topics = repo.topics || [];
             const tagsHtml = topics.slice(0, 4).map(t => `<span class="tech-badge">${t}</span>`).join('');
-            
+
             const card = `
                 <div class="project-card">
                     <div class="card-banner" style="background: ${gradient}; position: relative; overflow: hidden;">
@@ -312,8 +312,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 </div>
             </div>
         `;
-        featuredContainer.insertAdjacentHTML('beforeend', card);
-    });
+            featuredContainer.insertAdjacentHTML('beforeend', card);
+        });
     } catch (err) {
         console.error(err);
         featuredContainer.innerHTML = `<div style="text-align: center; color: #f43f5e; grid-column: 1/-1;">Error rendering projects: ${err.message}</div>`;
@@ -329,7 +329,7 @@ if (contactForm) {
         e.preventDefault();
 
         // 🚨 IMPORTANT: Replace this URL with your Google Apps Script Web App URL!
-        const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwas_z5rZlhcYQDcyTkBZ2iSlh8Ma6_AZGPq4ZUq4_w0d3gHvdyxrkFkvOInht_-ydt/exec';
 
         const btn = document.getElementById('submitBtn');
         const btnText = document.getElementById('btnText');
@@ -349,7 +349,7 @@ if (contactForm) {
         btn.style.opacity = '0.7';
         btn.disabled = true;
         btnIcon.style.display = 'none';
-        
+
         statusDiv.style.display = 'none';
 
         const formData = new FormData(contactForm);
