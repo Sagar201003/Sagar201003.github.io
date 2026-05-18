@@ -404,3 +404,85 @@ if (contactForm) {
         }
     });
 }
+
+// ==========================================
+// Custom Interactive Cursor
+// ==========================================
+// Only initialize if device has a fine pointer (mouse)
+if (window.matchMedia("(pointer: fine)").matches) {
+    const cursorDot = document.createElement('div');
+    cursorDot.classList.add('cursor-dot');
+    document.body.appendChild(cursorDot);
+
+    const cursorOutline = document.createElement('div');
+    cursorOutline.classList.add('cursor-outline');
+    document.body.appendChild(cursorOutline);
+
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        // Smooth trailing effect
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    });
+
+    // Add hover effect to all interactable elements dynamically
+    document.addEventListener('mouseover', (e) => {
+        if (e.target.closest('a, button, input, textarea, .btn, .filter-pill, .social-icon, .project-card, .blog-card, .btn-card, .nav-link')) {
+            cursorOutline.classList.add('cursor-hover');
+        }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+        if (e.target.closest('a, button, input, textarea, .btn, .filter-pill, .social-icon, .project-card, .blog-card, .btn-card, .nav-link')) {
+            cursorOutline.classList.remove('cursor-hover');
+        }
+    });
+}
+
+// ==========================================
+// Scroll Reveal Animations
+// ==========================================
+function reveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    
+    // Fallback if observer isn't supported
+    if (!('IntersectionObserver' in window)) {
+        reveals.forEach(element => {
+            const windowHeight = window.innerHeight;
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+
+            if (elementTop < windowHeight - elementVisible) {
+                element.classList.add("active");
+            }
+        });
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                obs.unobserve(entry.target); // Reveal only once
+            }
+        });
+    }, {
+        threshold: 0.15 // Trigger when 15% of element is visible
+    });
+
+    reveals.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Trigger once on load
+document.addEventListener('DOMContentLoaded', reveal);
+// Trigger on scroll as fallback
+window.addEventListener('scroll', reveal);

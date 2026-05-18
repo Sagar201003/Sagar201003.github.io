@@ -2078,3 +2078,62 @@ body.blog-theme {
     align-items: center;
     gap: 0.5rem;
 }
+
+/* ==========================================
+   Custom Interactive Cursor
+   ========================================== */
+@media (pointer: fine) {
+    body {
+        cursor: none;
+    }
+    
+    .cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        background-color: var(--accent-blue);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: transform 0.1s ease;
+        box-shadow: 0 0 10px var(--accent-blue);
+    }
+
+    .cursor-outline {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        border: 1px solid var(--accent-blue);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, background-color 0.2s;
+    }
+
+    .cursor-hover {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(100, 200, 255, 0.1);
+        border-color: rgba(100, 200, 255, 0.5);
+    }
+}
+
+/* ==========================================
+   Scroll Reveal Animations
+   ========================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
