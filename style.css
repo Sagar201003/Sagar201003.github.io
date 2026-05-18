@@ -2252,71 +2252,91 @@ body.blog-theme {
     padding: 6rem 0;
 }
 
-.publication-card {
-    display: flex;
-    gap: 2rem;
-    padding: 2.5rem;
-    align-items: flex-start;
-    max-width: 900px;
-    margin: 0 auto;
+.publications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
 }
 
-.pub-icon {
+.pub-horizontal-card {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 16px;
+}
+
+.pub-horizontal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.1);
+}
+
+.pub-left {
     flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    background: rgba(139, 92, 246, 0.1);
-    border-radius: 15px;
+    width: 48px;
+    height: 48px;
+    background: rgba(139, 92, 246, 0.15);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--accent-violet);
 }
 
-.pub-icon svg {
-    width: 32px;
-    height: 32px;
+.pub-left svg {
+    width: 24px;
+    height: 24px;
 }
 
-.pub-content {
+.pub-right {
     flex-grow: 1;
 }
 
-.pub-title {
-    font-size: 1.5rem;
+.pub-compact-title {
+    font-size: 1.1rem;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.3rem;
     font-family: var(--font-heading);
+    line-height: 1.3;
 }
 
-.pub-authors {
+.pub-compact-authors {
     color: var(--text-secondary);
-    margin-bottom: 0.5rem;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
 }
 
-.pub-authors strong {
+.pub-compact-authors strong {
     color: var(--text-primary);
     font-weight: 600;
 }
 
-.pub-journal {
+.pub-compact-journal {
     color: var(--accent-blue);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
 }
 
-.pub-link {
+.pub-compact-link {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.5rem 1.2rem;
-    font-size: 0.9rem;
+    gap: 4px;
+}
+
+.pub-compact-link:hover {
+    color: var(--accent-blue);
 }
 
 @media (max-width: 768px) {
-    .publication-card {
-        flex-direction: column;
-        gap: 1.5rem;
+    .publications-grid {
+        grid-template-columns: 1fr;
     }
 }
