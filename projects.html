@@ -46,12 +46,12 @@
         </div>
 
         <div class="projects-controls">
-            <div class="filter-bar">
-                <button class="filter-pill active" data-filter="all">All</button>
-                <button class="filter-pill" data-filter="cv">Computer Vision</button>
-                <button class="filter-pill" data-filter="nlp">NLP/LLMs</button>
-                <button class="filter-pill" data-filter="mlops">MLOps</button>
-                <button class="filter-pill" data-filter="fullstack">Full Stack</button>
+            <div class="filter-bar" id="category-filters">
+                <button class="filter-pill active" data-category="All">All</button>
+                <button class="filter-pill" data-category="Computer Vision">Computer Vision</button>
+                <button class="filter-pill" data-category="NLP/LLMs">NLP/LLMs</button>
+                <button class="filter-pill" data-category="MLOps">MLOps</button>
+                <button class="filter-pill" data-category="Full Stack">Full Stack</button>
             </div>
             
             <div class="search-bar">
@@ -64,6 +64,13 @@
         </div>
 
         <div class="container">
+            <h2 class="section-subtitle" style="font-size: 1.5rem; margin-bottom: 2rem; color: #f8fafc;">Recent Works</h2>
+            <div class="projects-grid" id="recent-projects-grid" style="margin-bottom: 4rem;">
+                <div style="text-align: center; grid-column: 1 / -1; padding: 2rem; color: #94a3b8;">
+                    Loading recent projects from GitHub...
+                </div>
+            </div>
+
             <h2 class="section-subtitle" style="font-size: 1.5rem; margin-bottom: 2rem; color: #f8fafc;">Featured Projects</h2>
             <div class="projects-grid" id="featured-projects-grid">
                 <!-- Dynamically populated by JS -->
