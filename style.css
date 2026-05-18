@@ -2052,3 +2052,29 @@ body.blog-theme {
         justify-content: space-between;
     }
 }
+
+/* ==========================================
+   Staggered Card Fade-In Animation
+   ========================================== */
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Filtered & Default view transitions */
+#default-view,
+#filtered-view {
+    transition: opacity 0.3s ease;
+}
+
+#filtered-view-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
