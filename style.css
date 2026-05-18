@@ -2137,3 +2137,110 @@ body.blog-theme {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ==========================================
+   Experience Timeline
+   ========================================== */
+.experience-section {
+    padding: 6rem 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 4px;
+    width: 2px;
+    background: rgba(167, 139, 250, 0.2);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -2rem;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    box-shadow: 0 0 10px var(--accent-blue);
+    transform: translateX(-4px);
+}
+
+.timeline-content {
+    padding: 2.5rem;
+    position: relative;
+}
+
+.timeline-date {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: rgba(100, 200, 255, 0.1);
+    color: var(--accent-blue);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(100, 200, 255, 0.2);
+}
+
+.timeline-role {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    font-family: var(--font-heading);
+}
+
+.timeline-company {
+    font-size: 1.1rem;
+    color: var(--accent-violet);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.timeline-project {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timeline-tasks {
+    list-style: none;
+    padding-left: 0;
+}
+
+.timeline-tasks li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.timeline-tasks li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-size: 1.2rem;
+    top: -2px;
+}
