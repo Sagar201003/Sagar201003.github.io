@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Fetch README
         const readmeMarkdown = await fetchReadme(repoName);
-        
+
         // Parse markdown if exists
         const readmeHtml = readmeMarkdown ? marked.parse(readmeMarkdown) : '<p style="text-align: center; color: #94a3b8; padding: 3rem;">No README.md available for this repository.</p>';
 
         const langColor = repo.language ? getLanguageColor(repo.language) : '#64c8ff';
-        
+
         // Define beautiful vibrant gradients for the banner
         const beautifulGradients = [
             "linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%)", // Purple to Pink
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Slight styling adjustments for markdown elements dynamically rendered
         setTimeout(() => {
             const mdBody = document.querySelector('.markdown-body');
-            if(mdBody) {
+            if (mdBody) {
                 const imgs = mdBody.querySelectorAll('img');
                 imgs.forEach(img => {
                     img.style.maxWidth = '100%';
